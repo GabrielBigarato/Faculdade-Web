@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <img src="./img/imagem1.png" alt="imagem1">
+    <br>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="pagina1.html">Pagina 1</a>
+    <a href="pagina2.html">Pagina 2</a>
+    <a href="contato.html">contato</a>
+    <br>    
+    <h1><b>Contato</b></h1>
+    <h1><b>Entre em contato conosco</b></h1>
+    <p>Preencha o formulario abaixo:</p>
+    <form name="meu_form" id="meu_form">
+        <p class="nome">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nomeid" placeholder="Ex: Fulano da Silva" required="required" name="nome"/>
+        </p>
+        <p>
+            <label for="email">Email:</label><br>
+            <input type="email" id="emailid" placeholder="fulano@gmail.com" name="email" required="required"/>
+        </p>
+        <p class="sexo">
+            <label for="sexo">Sexo:</label><br>
+            <input type="radio" name="sexo" value="selectA">Masculino
+            <br>
+            <input type="radio" name="sexo" value="selectB">Feminino
+        </p>
+        <p>
+            <label for="assunto">Assunto:</label><br>
+            <select>
+                <option value="blog">Blog</option> 
+                <option value="ctt">Contato</option>
+                <option value="home"> Home </option> 
+                <option value="p1">Pagina 1</option>
+                <option value="p2">Pagina 2</option>
+            </select>
+        </p>
+        <p>
+            <textarea placeholder="Sua mensagem aqui:" required="required"></textarea>
+
+        </p>
+        <button type="submit" form="meu_form">Enviar</button>
+    </form>
+</body>
+</html>

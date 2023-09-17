@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+}
+
+div {
+    border: 2px solid gray;
+    width: 200px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.tipo1 {
+    background-color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.tipo2 {
+    background-color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    margin-top: 20px;
+}

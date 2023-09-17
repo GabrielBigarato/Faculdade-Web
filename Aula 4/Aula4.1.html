@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula4.1</title>
+</head>
+<body>
+    <input type="button" value="butao" id="bt1">
+
+    <button id="bt2">butao2</button>
+    <div id="div">
+        <p id="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, sunt laudantium? Ex, beatae harum culpa at praesentium unde cum voluptatibus!</p>
+        
+    </div>
+    <script>
+        let bt2 = document.getElementById("bt2");
+        bt2.addEventListener("click", function() {
+            alert("Corno")       
+        });
+
+        const bloco = document.getElementById("div")
+
+        let para = document.getElementById("para");
+
+        let bt1 = document.getElementById("bt1");
+        bt1.addEventListener("click", function(){
+
+            //Interpreta TAgs HTML
+           para.innerHTML = "<b> xablau </b>";
+
+           //Nao interpreta TAgs HTML
+           //para.innerText = "<b> xablau </b>";
+
+           bloco.style.backgroundColor = "red"
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+.body{
+    background-color: #FCFFF6;
+}
+.topo{
+    background-color: #193541;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 1px;
+    font-size: 24px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+.txt-principal{
+    text-align: center;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 30px;
+}
+.imagens{
+    text-align: center;
+}
+.imagem{
+    width: 300px;
+    height: 250px;
+    padding: 10px;
+    padding-bottom: 30px;
+    border: 1px solid grey;
+    margin: 5px;
+
+}
+.imagem2{
+    width: 300px;
+    height: 450px;
+    padding: 10px;
+    padding-bottom: 30px;
+    border: 1px solid grey;
+    margin: 5px;
+
+}
+.legenda{
+    position: absolute;
+    top: 450px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.legenda2{
+    position: absolute;
+    top: 760px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.legenda3{
+    position: absolute;
+    top: 1070px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.legenda4{
+    position: absolute;
+    top: 1370px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.legenda5{
+    position: absolute;
+    top: 1880px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.rodape{
+    background-color: #89A398;
+    padding-top: 1px;
+    padding-bottom: 30px;
+    font-size: 13px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    text-align: center;
+}

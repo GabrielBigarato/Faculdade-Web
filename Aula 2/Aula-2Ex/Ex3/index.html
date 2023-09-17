@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    <div class="formu">
+        <form class="form" name="meu_form" id="meu_form">
+            <p class="v1">
+                <label for="v1"><b>Valor 1:</b></label>
+                <input class="txt" type="number" id="valor1" required="required" name="valor1"/>
+            </p>
+            <p class="v2">
+                <label for="v2"><b>Valor 2:</b></label>
+                <input class="txt" type="number" id="valor2" required="required" name="valor2"/>
+            </p>
+            <p class="opcoes">
+                <label for="opcoes"><b>Opcoes:</b></label><br>
+                <input type="radio" name="valor" value="som" id="a">Soma
+                <br>
+                <input type="radio" name="valor" value="sub" id="b">Subtracao
+                <br>
+                <input type="radio" name="valor" value="mul" id="c">Multiplicacao
+                <br>
+                <input type="radio" name="valor" value="div" id="d">Divisao
+            </p>
+            <p class="resultado">
+                <label for="resultado"><b>Resultado:</b></label>
+                <input class="txt" type="text" name="resultado" id="resul" disabled>
+            </p>
+            <button type="submit" form="meu_form">Calcular</button>
+
+            <script src="./script.js"></script>
+        </form>
+    </div>
+</body>
+</html>

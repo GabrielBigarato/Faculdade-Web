@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Dados</title>
+
+    <script>
+
+        function coletarDados() {
+            // Solicitar nome, idade e e-mail do usuario usando prompt
+            let nome = prompt("Digite seu nome:")
+            let idade = prompt("Digite sua idade:")
+            let email = prompt("Digite seu e-mail:")
+
+            // Criar um compilado dos dados
+            let compilado = "Ola " + nome + "\nNome: " + nome + "\nIdade: " + idade +"\nE-mail: " + email;
+
+            // Exibir os dados compilados em um alert
+            alert("Dados inseridos:\n" + compilado);
+            // console.log("Dados inseridos:\n" + compilado);
+            
+        }
+    </script>
+</head>
+<body>
+
+    <input type="button" value="Enviar" onclick="coletarDados()">
+    
+</body>
+</html>
