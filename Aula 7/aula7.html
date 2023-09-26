@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sorteio"></div>
+    <button id="butao">Nao clique no butao</button>
+
+
+    <script>
+        const butao = document.getElementById("butao");
+        const sorteio = document.getElementById("sorteio");
+
+        butao.addEventListener("click", sorteiro);
+
+        let cores = ["black","red","blue", "white"];
+
+        function sorteiro() {
+            console.log("funciona");
+            let num = Math.floor(Math.random() * 4);
+            console.log(num);
+            cores[num];
+
+            sorteio.textContent = cores[num];
+
+            //sorteio.style.backgroundColor=cores[num];
+
+            let c1 =  Math.floor(Math.random()*255)
+            let c2 = Math.floor(Math.random()*255)
+            let c3 = Math.floor(Math.random()*255)
+
+            let cor = [c1, c2, c3]
+
+            console.log(cor)
+            let co = 'rgb(c1,c2,c3)'
+            sorteio.style.backgroundColor= `rgb(${c1},${c2},${c3})`;
+
+
+        }
+        
+
+        //capture a div
+        //dispare um evento quando btn for clicado
+        //quando btn for clicado dispare a funcao sorteio
+        //na funcao sorteio() gere um numero aleatorio de 0 a 3
+        //imprima na div uma cor aleatoria ou seja utilize o numero aleatorio como indice do vetor.
+        
+
+
+    </script>
+
+
+</body>
+</html>

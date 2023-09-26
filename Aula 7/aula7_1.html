@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="butao">butao</button>
+
+    <div id="div"></div>
+
+
+    <script>
+        const butao = document.getElementById("butao")
+        
+        butao.addEventListener("click", cricou)
+        let cores = ["cores", "vermelho", "azul", "branco"]
+
+
+
+
+        function cricou(){
+            for(let i = 0; i < 4; i++){
+                console.log("numerozinho: " + cores[i])
+            };
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
