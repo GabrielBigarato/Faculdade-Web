@@ -27,11 +27,6 @@ btn5.addEventListener("click", exibirCl1);
 btn6.addEventListener("click", exibirCl2);
 btn7.addEventListener("click", restaurarTexto);
 
-// // Função para alterar o texto do primeiro parágrafo (cl1)
-// function alterarTexto() {
-//     cl1Paragraphs[0].textContent = "Texto alterado no parágrafo 1 (cl1)";
-// }
-
 // Função para alterar o texto do próximo parágrafo (cl1 ou cl2)
 function alterarTextoParagrafo() {
     if (proximoParagrafo < cl1Paragraphs.length) {
@@ -94,7 +89,7 @@ function iniciarTemporizador() {
     }, 3000);
 }
 
-        // Armazenar os textos originais dos parágrafos
+// Armazenar os textos originais dos parágrafos
 for (var i = 0; i < cl1Paragraphs.length; i++) {
     textosOriginais.push(cl1Paragraphs[i].textContent);
 }
