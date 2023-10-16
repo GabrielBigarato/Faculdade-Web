@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulário</h2>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required><br>
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" id="sobrenome" required><br>
+
+        <button id="button1">Exibir e Console</button>
+        <button id="button2">Inverter Nome e Sobrenome</button>
+        <button id="button3">Maiúsculas</button>
+        <button id="button4">Minúsculas</button>
+        
+        <p id="paragrafo">Texto inicial do parágrafo.</p>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

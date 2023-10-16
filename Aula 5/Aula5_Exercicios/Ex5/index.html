@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pagamento</title>
+</head>
+<body>
+    <div id="div_formulario">
+        <form id="form">
+            <label><b>Valor do Produto:</b></label>
+            <input class="txt" id="valorProduto" type="number" step="0.01" required><br>
+            <hr>
+            <label for="modalidade"><b>Escolha a Modalidade de Pagamento:</b></label>
+            <select id="modalidade">
+                <option value="1">A VISTA (10% de desconto)</option>
+                <option value="2">DEBITO (2% de juros)</option>
+                <option value="3">CREDITO (7% de juros)</option>
+            </select><br>
+            <hr>
+            <button type="button" onclick="calcularValorAPagar()">Calcular</button>
+            <hr>
+            <label for="resultado"><b>Resultado:</b></label>
+            <p id="resultado"></p>
+        </form>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
