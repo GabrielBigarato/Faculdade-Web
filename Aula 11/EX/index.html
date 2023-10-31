@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="exporta"></div>
+
+    <button id="btn">Atualiza conteudo</button>
+
+    <script>
+        const exporta = document.getElementById("exporta");
+        const btn = document.getElementById("btn");
+        const xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("GET", "./locadoraCarros.xml");
+        xmlhttp.send();
+
+        btn.addEventListener("click", imprimeConteudoXML)
+
+        function imprimeConteudoXML(){
+
+            const docXML = xmlhttp.responseXML;
+
+            const fabricante = docXML.getElementsByTagName("fabricante");
+            const modelo = docXML.getElementsByTagName("modelo");
+
+            let txt = "";
+            for(let i = 0; i<fabricante.length ; i++){
+
+                txt += exporta.innerHTML = fabricante[i].innerHTML + ": " + modelo[i].innerHTML + "<br>";
+
+            }
+
+            exporta.innerHTML = txt
+
+        }
+    </script>
+</body>
+</html>

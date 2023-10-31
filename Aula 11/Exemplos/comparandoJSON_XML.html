@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON vs XML</title>
+
+    <style>
+        div {
+            padding: 30px;
+            width: 600px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        //objeto JS
+        const umObjetoJS = { nome: "Caio", idade: 31, cidade: "Sampa City" };
+
+        //objeto JSON
+        const umObjetoJSON = { "nome": "Caio", "idade": 31, "cidade": "Sampa City" };
+
+        // arquivo JSON formatado como string - para comunicação externa
+        const umObjetoJSONstring = '{"nome":"Caio", "idade":31, "cidade":"Sampa City"}';
+
+        /*
+            A grande diferença entre um obj JS e um JSON
+            é que as chaves estão entre áspas, isto é,
+            as propriedades do objeto
+
+            arquivoJSON = {"chave":"valor", "chave":"valor", ...} em áspas duplas!
+        */
+    </script>
+
+</head>
+
+<body>  
+    Ambos podem ser utilizados para enviar e receber dados de um servidor web
+
+    <div>
+        <p class="resultado1">umObjetoJS = </p>
+        <p class="resultado1">umObjetoJSON = </p>
+        <p class="resultado1">umObjetoJSONstring = </p>
+    </div>
+    <div>
+        <p class="resultado2">Transformando String para obj. JSON: <br />
+            JSON.parse( umObjetoJSONstring ) = </p>
+        <p class="resultado2">Transformando obj. JSON para String: <br />
+            JSON.stringify( umObjetoJSON )= </p>
+        <p class="resultado2">Transformando obj. JS para String: <br />
+            JSON.stringify( umObjetoJS )= </p>
+    </div>
+
+    <script>
+        let p1 = document.querySelectorAll(".resultado1");
+        p1[0].innerHTML += umObjetoJS;
+        p1[1].innerHTML += umObjetoJSON;
+        p1[2].innerHTML += umObjetoJSONstring;
+
+        let p2 = document.querySelectorAll(".resultado2");
+        //.parse analisa objeto como
+        p2[0].innerHTML += window.JSON.parse(umObjetoJSONstring);
+        p2[1].innerHTML += window.JSON.stringify(umObjetoJSON);
+        p2[2].innerHTML += window.JSON.stringify(umObjetoJS);
+    </script>
+
+
+</body>
+
+</html>

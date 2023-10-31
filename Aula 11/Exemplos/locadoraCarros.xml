@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locadora>
+  <carro>
+    <id>161</id>
+    <fabricante>Tesla</fabricante>
+    <modelo>model 3</modelo>
+    <ano>2019</ano>
+  </carro>
+  <carro>
+    <id>234</id>
+    <fabricante>Tesla</fabricante>
+    <modelo>model 3</modelo>
+    <ano>2020</ano>
+  </carro>
+  <carro>
+    <id>201</id>
+    <fabricante>BMW</fabricante>
+    <modelo>X2</modelo>
+    <ano>2019</ano>
+  </carro>
+  <carro>
+    <id>127</id>
+    <fabricante>Audi</fabricante>
+    <modelo>A6</modelo>
+    <ano>2018</ano>
+  </carro>
+</locadora>
+
+<!-- Dica de xml externos:-->
+<!-- https://www.w3schools.com/xml/simple.xml -->
+<!-- https://www.w3schools.com/xml/cd_catalog.xml -->
+<!-- https://www.w3schools.com/xml/plant_catalog.xml -->
+
+<!-- 
+<root>  // elemento raíz
+  <child></child> //filho 1
+  <child></child> //filho 2
+  <child></child> //filho 3
+  <child>         //filho 4
+    <subchild>.....</subchild>  //filhoDofilho 1
+  </child>
+</root>
+-->
+

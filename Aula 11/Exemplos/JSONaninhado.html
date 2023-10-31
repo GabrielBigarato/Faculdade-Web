@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON aninhado</title>
+
+    <style>
+        div {
+            padding: 30px;
+            width: 600px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        // declaração de um JSON aninhado
+        let chefe = {
+            "nome": "Marcelo",
+            "idade": 87,
+            "carros": [
+                { "nome": "Tesla", "modelos": ["model 3", "model S", "model X"] },
+                { "nome": "BMW", "modelos": ["X2", "X6"] },
+                { "nome": "Audi", "modelos": ["A6", "S4"] }
+            ]
+        }
+
+        /* 
+            neste exemplo o objeto em JSON é composto pelas chaves:
+                "nome", "idade" e "carros".
+            A chave "carros" é um Array onde cada elemento é composto por duas chaves:
+                "nome" e "modelos".
+            A chave "modelos" também é um Array.
+            //
+            O objeto chefe seria praticamente igual em JS
+        */
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+        <p id="resposta"></p>
+    </div>
+
+
+    <script>
+        const p = document.getElementById("resposta")
+
+        /* script para imprimir todos os valores do JSON aninhado */
+        for (i in chefe.carros) {
+            p.innerHTML += "<h2>" + chefe.carros[i].nome + "</h2>";
+            for (j in chefe.carros[i].modelos) {
+                p.innerHTML += chefe.carros[i].modelos[j] + "<br>";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
+

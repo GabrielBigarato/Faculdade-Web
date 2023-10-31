@@ -1,0 +1,18 @@
+
+<!-- Versão do XML e codificação -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- elemento raíz -->
+<root>
+  <child> <!-- elemento child de root -->
+    <subchild>.....</subchild> <!-- elemento child de child -->
+    <subchild>.....</subchild>
+    <subchild>.....</subchild>
+  </child>
+  <child>
+    <subchild>.....</subchild>
+    <subchild>.....</subchild>
+    <subchild>.....</subchild>
+  </child>
+</root>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando e imprimindo XML</title>
+
+    <style>
+        #container {
+            width: 300px;
+            margin: 20px auto;
+            padding: 30px;
+            text-align: justify;
+            border: 2px solid;
+        }
+
+        table {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        td {
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function loadJSONDocument() {
+            /* 1 - cria um objeto XMLHttpRequest */
+            const xmlhttp = new XMLHttpRequest();
+
+            /* A propriedade onreadystatechange é acionada
+                toda vez que a propriedade readyState altera
+                de estado. */
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    const objetoJS = JSON.parse(xmlhttp.responseText);
+                    console.log(xmlhttp.responseText);
+
+                    imprimeTabelaJS(objetoJS);
+                }
+            }
+
+            // 2 - especifica a requisição
+            xmlhttp.open("GET", "./locadoraCarros.json", true);
+
+            // 3 - envia a requisição
+            xmlhttp.send();
+        }
+
+        function imprimeTabelaJS(jsObj) {
+
+            // o usuário deve conhecer os dados
+            
+            let tabela = "<tr><th>Fabricante</th><th>Modelo</th></tr>";
+            for (let i = 0; i < jsObj.length; i++) {
+                tabela += "<tr><td>" + jsObj[i].fabricante +
+                    "</td><td>" + jsObj[i].modelo +
+                    "</td></tr>";
+            }
+
+            const exporta = document.getElementById("exporta");
+            exporta.innerHTML = tabela;
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <p>Para que o JSON seja carregado é necessário
+            que ele esteja em um servidor web.
+            Não adianta abrir o arquivo .html no
+            navegador. <br>
+            Utilizar o LiveServer do VSCode
+            é uma ótima solução.
+        </p>
+
+
+        <table id="exporta" border="1">
+            <tr>
+                <th>Carro</th>
+                <th>Modelo</th>
+            </tr>
+        </table>
+
+        <p>Dados carregados. <br>
+            Altere apenas o arquivo JSON e verifique o que acontece</p>
+    </div>
+
+    <script>
+        window.addEventListener("load", loadJSONDocument)
+    </script>
+
+</body>
+
+</html>
+

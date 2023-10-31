@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando e imprimindo XML</title>
+
+    <style>
+        #container {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+        }
+
+        td {
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function loadXMLDocument() {
+            console.clear()
+
+            /* 1 - cria um objeto XMLHttpRequest */
+            const xmlhttp = new XMLHttpRequest();
+            console.log("new XMLHttpRequest()")
+            console.log("  xmlhttp.status = " + xmlhttp.status)
+            console.log("  xmlhttp.readyState = " + xmlhttp.readyState)
+
+            /* - A propriedade onreadystatechange é acionada
+                                toda vez que a propriedade readyState altera
+                                de estado. */
+            xmlhttp.onreadystatechange = function () {
+                console.log("readystatechange")
+                console.log("  xmlhttp.status = " + xmlhttp.status)
+                console.log("  xmlhttp.readyState = " + xmlhttp.readyState)
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    imprimeTabela(xmlhttp.responseXML);
+                }
+
+            }
+            /* xmlhttp.onload = function(){} 
+                poderia ser utilizado.
+                Ele é executado apenas após o xml ser carregado.
+                Isso significa que será executado quando 
+                xmlhttp.status == 200 */
+
+            // 2 - especifica a requisição
+            xmlhttp.open("GET", "./locadoraCarros.xml", true);
+            console.log("open()")
+            console.log("  xmlhttp.status = " + xmlhttp.status)
+            console.log("  xmlhttp.readyState = " + xmlhttp.readyState)
+
+            // 3 - envia a requisição
+            xmlhttp.send();
+            console.log("send()")
+            console.log("  xmlhttp.status = " + xmlhttp.status)
+            console.log("  xmlhttp.readyState = " + xmlhttp.readyState)
+        }
+
+        function imprimeTabela(xmlDoc) {
+            const carro = xmlDoc.getElementsByTagName("carro");
+
+            let tabela = "<tr><th>Carro</th><th>Modelo</th></tr>";
+            for (let i = 0; i < carro.length; i++) {
+                tabela += "<tr><td>" + carro[i].childNodes[1].childNodes[0].nodeValue +
+                    "</td><td>" + carro[i].childNodes[3].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+
+            const exporta = document.getElementById("exporta");
+            exporta.innerHTML = tabela;
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <p>Verifique no console cada etapa que ocorre
+            com as propriedades <br>
+            <strong>xmlhttp.status</strong> e <br>
+            <strong>xmlhttp.readyState</strong>
+        </p>
+        <button>Carregar carros da locadora</button>
+
+        <table id="exporta" border="1">
+            <tr>
+                <th>Carro</th>
+                <th>Modelo</th>
+            </tr </table>
+    </div>
+
+    <script>
+        const btn = document.querySelector("button")
+        btn.addEventListener("click", loadXMLDocument)
+    </script>
+
+</body>
+
+</html>

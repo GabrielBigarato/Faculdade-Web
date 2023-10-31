@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto JSON vs JS vs String</title>
+
+    <style>
+        div {
+            padding: 30px;
+            width: 600px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        //objeto JS
+        const umObjetoJS = { nome: "Caio", idade: 31, cidade: "Sampa City" };
+
+        //objeto JSON
+        const umObjetoJSON = { "nome": "Caio", "idade": 31, "cidade": "Sampa City" };
+
+        /*
+            A grande diferença entre um objeto JS e um objeto JSON é que 
+            as propriedades do objeto JS são chamadas de chaves no JSON e 
+            também precisam estar entre áspas duplas!.
+            Mesmo assim é possível converter um em outro facilmente.
+
+            arquivoJSON = {"chave":"valor", "chave":"valor", ...}
+        */
+
+        // arquivo JSON formatado como string - para comunicação externa
+        const jsonParaTransferencia = '{"nome":"Caio", "idade":31, "cidade":"Sampa City"}';
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+        <p class="resultado1">umObjetoJS = </p>
+        <p class="resultado1">umObjetoJSON = </p>
+        <p class="resultado1">jsonParaTransferencia = </p>
+    </div>
+    <div>
+        <p class="resultado2">Transformando JSON_recebido para obj. JSON <br />
+            JSON.parse( jsonParaTransferencia ) = </p>
+        <p class="resultado2">Transformando obj. JSON para enviar_JSON <br />
+            JSON.stringify( umObjetoJSON )= </p>
+        <p class="resultado2">Transformando obj. JS para enviar_JSON <br />
+            JSON.stringify( umObjetoJS )= </p>
+    </div>
+
+    <script>
+        /* script referente aos tipos de declarações 
+            JS, JSON e String */
+
+        let p1 = document.querySelectorAll(".resultado1");
+        p1[0].innerHTML += umObjetoJS;
+        p1[1].innerHTML += umObjetoJSON;
+        p1[2].innerHTML += jsonParaTransferencia;
+
+        let p2 = document.querySelectorAll(".resultado2");
+        //.parse transforma em um objeto JS
+        p2[0].innerHTML += window.JSON.parse(jsonParaTransferencia);
+        //.stringify transforma em texto
+        p2[1].innerHTML += window.JSON.stringify(umObjetoJSON);
+        p2[2].innerHTML += window.JSON.stringify(umObjetoJS);
+    </script>
+</body>
+
+</html>
+

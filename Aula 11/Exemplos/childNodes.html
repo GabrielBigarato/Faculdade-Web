@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Formulário </title>
+
+	<style>
+		#container {
+			margin: 10px auto;
+			width: 300px;
+			border: solid;
+			padding: 40px;
+		}
+
+		.miniBloco {
+			display: block;
+			margin: 20px 0;
+		}
+
+		.espacoAbaixo {
+			display: block;
+			margin-bottom: 10px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="container">
+		<form name="form1" id="form1" method="get" action="processa.php">
+
+			<div class="miniBloco"><label for="nome">Nome:</label>
+				<input name="nome" type="text" id="nome" size="20" />
+			</div>
+
+			<div class="miniBloco">Sexo:
+				<input type="radio" name="sexo" id="sexo1" value="radio" />
+				<label for="sexo1">M</label>
+				<input type="radio" name="sexo" id="sexo2" value="radio2" />
+				<label for="sexo2">F</label>
+			</div>
+
+			<div class="miniBloco">Cidade:
+				<select name="cidade" id="cidade">
+					<option value="-"></option>
+					<option value="SP">São Paulo</option>
+					<option value="RJ">Rio de Janeiro</option>
+				</select>
+			</div>
+
+			<span class="espacoAbaixo">
+				<input type="button" name="btn1" id="btn1" value="Confirmar Inscrição" />
+			</span>
+
+		</form>
+	</div>
+</body>
+
+</html>
+
