@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>sessionStorage</title>
+	<style>
+		.containers {
+			margin: 0 auto;
+			width: 280px;
+			text-align: right;
+			border: 2px solid black;
+			padding: 20px;
+		}
+
+		.bloco {
+			margin: 20px;
+		}
+	</style>
+
+	<script>
+		function gravarDados() {
+
+			/* window.sessionStorage.setItem("chave","valor")
+				.setItem() é uma função que armazena
+				a chave como uma propriedade do objeto sessionStorage e 
+				o "valor" como valor desta propriedade */
+			sessionStorage.setItem("nome", formElements["nome"].value);
+			sessionStorage.setItem("cpf", formElements["cpf"].value);
+			sessionStorage.setItem("profissao", formElements["profissao"].value);
+
+			// limpa os campos do formElements
+			formElements.reset();
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>sessionStorage salvo</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log(sessionStorage)
+		}
+
+
+		function verificarDados() {
+
+			// captura as chaves de sessionStorage
+			/* método Object.keys(objetoX) retorna um array com
+				as propriedades do objetoX */
+			const chave = Object.keys(sessionStorage);
+
+			//  captura os valores das chaves de sessionStorage
+			let valor = [];
+			for (i = 0; i < chave.length; i++) {
+				valor[i] = sessionStorage.getItem(chave[i]);
+			}
+
+			// impressao de controle
+			impressao.style.display = "block";
+			impressao.innerHTML = "<strong>sessionStorage Carregado</strong>";
+			for (i = 0; i < chave.length; i++) {
+				impressao.innerHTML += "<p>"+ chave[i] +"="+ valor[i]  + "</p>";
+			}
+
+		}
+
+		function removerDados() {
+
+			/* window.sessionStorage.removeItem("chave")
+				.removeItem() é uma função que limpa a chave e seu valor */
+			sessionStorage.removeItem("nome");
+			sessionStorage.removeItem("cpf");
+			sessionStorage.removeItem("profissao");
+			// sessionStorage.clear(); // poderia ser utilizado para limpar tudo
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>sessionStorage Limpo</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log(sessionStorage)
+		}
+	</script>
+</head>
+
+<body>
+	<div class="containers">
+		<form id="form1" name="form1" method="post" action="">
+			<div class="bloco">Nome: <input name="nome" type="text" /></div>
+			<div class="bloco">CPF: <input name="cpf" type="text" /></div>
+			<div class="bloco">Profissão: <input name="profissao" type="text" /></div>
+			<div class="bloco"><input type="button" name="btbGravar" value="Gravar Dados" /></div>
+			<div class="bloco"><input type="button" name="btbVerificar" value="Verificar Dados" /></div>
+			<div class="bloco"><input type="button" name="btbRemover" value="Remover Dados" /></div>
+		</form>
+	</div>
+	<div class="containers" id="impressao" style="display: none;"></div>
+
+	<script>
+		const impressao = document.getElementById("impressao");
+		const formElements = document.forms[0];
+
+		formElements["btbGravar"].addEventListener("click", gravarDados);
+		formElements["btbVerificar"].addEventListener("click", verificarDados);
+		formElements["btbRemover"].addEventListener("click", removerDados);
+	</script>
+</body>
+
+</html>
+
+

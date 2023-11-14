@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cookie</title>
+	<style>
+		.containers {
+			margin: 0 auto;
+			width: 280px;
+			text-align: right;
+			border: 2px solid black;
+			padding: 20px;
+		}
+
+		.bloco {
+			margin: 20px;
+		}
+	</style>
+
+	<script>
+		function gravarDados() {
+
+			/* Criação de data de expiração para os cookies. 
+				Se ela não for criada, o cookie será eliminado no fim da sessão */
+			let dataValidade = new Date();
+			let tempo = 3; //dias
+			novaData = dataValidade.getDate() + tempo;
+			dataValidade.setDate(novaData)
+
+			// document.cookie aceita um cookie (um par chave e valor) por vez!!
+			document.cookie = "nome=" + formElements["nome"].value + ";";
+			document.cookie = "cpf=" + formElements["cpf"].value + ";";
+			document.cookie = "profissao=" + formElements["profissao"].value + ";"
+			document.cookie = "expires=" + dataValidade;
+
+			// limpa os campos do formElements
+			formElements.reset();
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>Cookie salvos</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log("document.cookie = " + document.cookie)
+		}
+
+
+		function verificarDados() {
+
+			// carrega Cookies
+			const cookieValue = document.cookie;
+			/* método .split(delimitadores) transforma 
+				string em array baseado em delimitadores*/
+			const cookieArray = cookieValue.split("; ")
+
+			// impressao de controle
+			impressao.style.display = "block";
+			impressao.innerHTML = "<strong>Cookie Carregados</strong>";
+			for (i = 0; i < cookieArray.length; i++) {
+				impressao.innerHTML += "<p>"+ cookieArray[i] + "</p>";
+			}
+
+		}
+
+		function removerDados() {
+
+			// carrega Cookies
+			const cookieValue = document.cookie;
+			/* método .split(delimitadores) transforma 
+				string em array baseado em delimitadores*/
+			const cookieArray = cookieValue.split("; ")
+
+			// cria uma data anterior a atual para remover os cookies
+			let dataRemocao = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+			// leitura do Array com o valor de cada cookie
+			document.cookie = cookieArray[0].split("=")[0] + "=; " + dataRemocao;
+			document.cookie = cookieArray[1].split("=")[0] + "=; " + dataRemocao;
+			document.cookie = cookieArray[2].split("=")[0] + "=; " + dataRemocao;
+			document.cookie = cookieArray[3].split("=")[0] + "=; " + dataRemocao;
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>Cookie Removido</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log("document.cookie = ")
+		}
+	</script>
+</head>
+
+<body>
+	<div class="containers">
+		<form id="form1" name="form1" method="post" action="">
+			<div class="bloco">Nome: <input name="nome" type="text" /></div>
+			<div class="bloco">CPF: <input name="cpf" type="text" /></div>
+			<div class="bloco">Profissão: <input name="profissao" type="text" /></div>
+			<div class="bloco"><input type="button" name="btbGravar" value="Gravar Cookie" /></div>
+			<div class="bloco"><input type="button" name="btbVerificar" value="Verificar Cookie" /></div>
+			<div class="bloco"><input type="button" name="btbRemover" value="Remover Cookie" /></div>
+		</form>
+	</div>
+	<div class="containers" id="impressao" style="display: none;"></div>
+
+	<script>
+		const impressao = document.getElementById("impressao");
+		const formElements = document.forms[0];
+
+		formElements["btbGravar"].addEventListener("click", gravarDados);
+		formElements["btbVerificar"].addEventListener("click", verificarDados);
+		formElements["btbRemover"].addEventListener("click", removerDados);
+	</script>
+</body>
+
+</html>
+

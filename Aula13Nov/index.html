@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome: <input type="text" id="entrada">
+    <br>
+    <input type="button" value="Armazenar" id="btnArmazenar">
+    <br>
+    <input type="button" value="imprimir" id="btnImprimir">
+    <br>
+    <div id="saida"></div>
+
+
+    <script>
+        const entrada = document.getElementById("entrada");
+        const btnArmazenar = document.getElementById("btnArmazenar");
+        const btnImprimir = document.getElementById("btnImprimir");
+        const saida = document.getElementById("saida")
+
+        btnArmazenar.addEventListener("click", armazena)
+
+        btnImprimir.addEventListener("click", imprimir)
+
+        //capture os elementos
+        //dispare uma função ao clicar no botao
+        //declare a funcao "armazena"
+
+        function armazena(){
+            //armazene o valor do campo de entrada no localStorage
+
+            let nomeDoFulano = entrada.value;
+
+            localStorage.setItem("nome", nomeDoFulano)
+        }
+
+        function imprimir(){
+
+            let nomeArmazenado = localStorage.getItem("nome");
+
+            //imprima o nome armazenado na div
+
+            saida.textContent = nomeArmazenado;
+
+        }
+    </script>
+</body>
+</html>

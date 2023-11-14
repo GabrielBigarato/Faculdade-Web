@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>localStorage</title>
+	<style>
+		.containers {
+			margin: 0 auto;
+			width: 280px;
+			text-align: right;
+			border: 2px solid black;
+			padding: 20px;
+		}
+
+		.bloco {
+			margin: 20px;
+		}
+	</style>
+
+	<script>
+		function gravarDados() {
+
+			/* window.localStorage.setItem("chave","valor")
+				.setItem() é uma função que armazena
+				a chave como uma propriedade do objeto localStorage e 
+				o "valor" como valor desta propriedade */
+			localStorage.setItem("nome", formElements["nome"].value);
+			localStorage.setItem("cpf", formElements["cpf"].value);
+			localStorage.setItem("profissao", formElements["profissao"].value);
+
+			// limpa os campos do formElements
+			formElements.reset();
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>localStorage salvo</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log(localStorage)
+		}
+
+
+		function verificarDados() {
+
+			// captura as chaves de localStorage
+			/* método Object.keys(objetoX) retorna um array com
+				as propriedades do objetoX */
+			const chave = Object.keys(localStorage);
+
+			//  captura os valores das chaves de localStorage
+			let valor = [];
+			for (i = 0; i < chave.length; i++) {
+				valor[i] = localStorage.getItem(chave[i]);
+			}
+
+			// impressao de controle
+			impressao.style.display = "block";
+			impressao.innerHTML = "<strong>localStorage Carregado</strong>";
+			for (i = 0; i < chave.length; i++) {
+				impressao.innerHTML += "<p>"+ chave[i] +"="+ valor[i]  + "</p>";
+			}
+
+		}
+
+		function removerDados() {
+
+			/* window.localStorage.removeItem("chave")
+				.removeItem() é uma função que limpa a chave e seu valor */
+			localStorage.removeItem("nome");
+			localStorage.removeItem("cpf");
+			localStorage.removeItem("profissao");
+			// localStorage.clear(); // poderia ser utilizado para limpar tudo
+
+			// impressao de controle
+			impressao.style.display = "block"
+			impressao.innerHTML = "<strong>localStorage Limpo</strong>"
+			setTimeout(() => impressao.style.display = "none", 1000)
+
+			// apresentação no console
+			console.log(localStorage)
+		}
+	</script>
+</head>
+
+<body>
+	<div class="containers">
+		<form id="form1" name="form1" method="post" action="">
+			<div class="bloco">Nome: <input name="nome" type="text" /></div>
+			<div class="bloco">CPF: <input name="cpf" type="text" /></div>
+			<div class="bloco">Profissão: <input name="profissao" type="text" /></div>
+			<div class="bloco"><input type="button" name="btbGravar" value="Gravar Dados" /></div>
+			<div class="bloco"><input type="button" name="btbVerificar" value="Verificar Dados" /></div>
+			<div class="bloco"><input type="button" name="btbRemover" value="Remover Dados" /></div>
+		</form>
+	</div>
+	<div class="containers" id="impressao" style="display: none;"></div>
+
+	<script>
+		const impressao = document.getElementById("impressao");
+		const formElements = document.forms[0];
+
+		formElements["btbGravar"].addEventListener("click", gravarDados);
+		formElements["btbVerificar"].addEventListener("click", verificarDados);
+		formElements["btbRemover"].addEventListener("click", removerDados);
+	</script>
+</body>
+
+</html>
+
+
