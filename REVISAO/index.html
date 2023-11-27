@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container{
+            width: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+        .caixa{
+            border: 1px solid black;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+
+        <div class="caixa"> 
+            <p>Conteudo</p>
+            <form>
+                <input type="text" id="entrada"><br><br>
+                <input type="button" value="Botão" id="botao">
+                <input type="button" value="Botão" id="botao2">
+                <br><br>
+                <div class="caixa" id="caixa_radios">
+                    <input type="radio" name="radios">OP0
+                    <input type="radio" name="radios">OP1
+                    <input type="radio" name="radios">OP2
+                </div>
+                <div class="caixa" id="caixa_checkbox">
+                    <input type="checkbox" name="checks">CHECK0
+                    <input type="checkbox" name="checks">CHECK1
+                    <input type="checkbox" name="checks">CHECK2
+                </div>
+                <div class="caixa" id="saida"></div>
+            </form>
+
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>   
+</body>
+</html>
