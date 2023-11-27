@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <style>
+        #container {
+            width: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+        .caixa {
+            border: 1px solid black;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="caixa">
+            <form>
+                <label for="entrada">DIGITE UM NUMERO</label>
+                <!-- Campo de entrada de texto -->
+                <input type="text" id="entrada">
+                <!-- Botões -->
+                <input type="button" id="btn1" value="Botao1">
+                <input type="button" id="btn2" value="Botao2">
+                <!-- Bloco vermelho -->
+                <div id="saida" class="caixa"></div>
+            </form>
+        </div>    
+    </div>
+
+    <script>
+        // Obtenção de referências aos elementos HTML
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const entrada = document.getElementById("entrada");
+        const saida = document.getElementById("saida");
+
+        // Variável para armazenar o ID do intervalo para atualização do número aleatório
+        let intervalo;
+
+        // Adiciona um ouvinte de evento para o Botão 1
+        btn1.addEventListener("click", clicouBTN1);
+        // Adiciona um ouvinte de evento para o Botão 2
+        btn2.addEventListener("click", clicouBTN2);
+
+        // Função executada quando o Botão 1 é clicado
+        function clicouBTN1() {
+            // Inicia o intervalo para atualizar o número aleatório a cada segundo
+            intervalo = setInterval(function () {
+                const numeroAleatorio = Math.floor(Math.random() * 100);
+                entrada.value = numeroAleatorio;
+                saida.textContent = Math.round(numeroAleatorio);
+            }, 1000);
+        }
+
+        // Função executada quando o Botão 2 é clicado
+        function clicouBTN2() {
+            // Limpa o intervalo para interromper a atualização do número aleatório
+            clearInterval(intervalo);
+            // Fixa o número atual nos campos de entrada e no bloco vermelho
+            entrada.value = saida.textContent;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <style>
+        #container {
+            width: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+        .caixa {
+            border: 1px solid black;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="caixa">
+            <form>
+                <!-- Rótulo para o campo de entrada de texto -->
+                <label for="entrada">DIGITE UM NUMERO</label>
+                <!-- Campo de entrada de texto -->
+                <input type="text" id="entrada">
+                <!-- Botão 1 -->
+                <input type="button" id="btn1" value="Botao1">
+                <!-- Botão 2 -->
+                <input type="button" id="btn2" value="Botao2">
+                <!-- Bloco vermelho -->
+                <div id="saida" class="caixa"></div>
+            </form>
+        </div>    
+    </div>
+
+    <script>
+        // Obtenção de referências aos elementos HTML
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const entrada = document.getElementById("entrada");
+        const saida = document.getElementById("saida");
+
+        // Lista de textos para escolher aleatoriamente
+        const listaDeTextos = ["Texto 1", "Texto 2", "Texto 3", "Texto 4", "Texto 5"];
+
+        // Adiciona um ouvinte de evento para o Botão 1
+        btn1.addEventListener("click", clicouBTN1);
+        // Adiciona um ouvinte de evento para o Botão 2
+        btn2.addEventListener("click", clicouBTN2);
+
+        // Função executada quando o Botão 1 é clicado
+        function clicouBTN1() {
+            // Escolhe um texto aleatório da lista
+            const textoAleatorio = listaDeTextos[Math.floor(Math.random() * listaDeTextos.length)];
+            // Exibe o texto no campo de entrada de texto
+            entrada.value = textoAleatorio;
+        }
+
+        // Função executada quando o Botão 2 é clicado
+        function clicouBTN2() {
+            // Escolhe um texto aleatório da lista
+            const textoAleatorio = listaDeTextos[Math.floor(Math.random() * listaDeTextos.length)];
+            // Exibe o texto no bloco vermelho
+            saida.textContent = textoAleatorio;
+        }
+    </script>
+</body>
+</html>
